@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Roadmap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/api.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="center-links">
+                <li><a href="{{ url_for('index') }}" id="home-btn" class="{{ 'active' if request.endpoint == 'index' else '' }}">Home</a></li>
+                <li><a href="{{ url_for('technology_home') }}" id="resources-btn" class="{{ 'active' if request.endpoint == 'technology_home' else '' }}">Technology</a></li>
+                <li><a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="{{ url_for('favorites') }}" id="favorites-btn" class="{{ 'active' if request.endpoint == 'favorites' else '' }}">Favorites</a></li>
+                
+                <li class="logout"><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="tech-section">
+        <h2>C Programming Language</h2>
+        <div class="tech-and-projects">
+        <div class="tech-container">
+            <form action="{{ url_for('add_to_favorites') }}" method="POST">
+                <input type="hidden" name="tech_name" value="{{ tech_name }}"> <!-- tech_name will be dynamic based on the technology -->
+                <button type="submit" class="add-favorites-btn">Add to Favorites</button>
+            </form>
+            <h3>Introduction to C</h3>
+            <ul>
+                <li><strong>What is C:</strong> C is a high-level, general-purpose programming language that is widely used for system programming, embedded systems, and application development.</li>
+                <li><strong>Features of C Programming:</strong> Fast, efficient, portable, and supports structured programming.</li>
+                <li><strong>Applications of C:</strong> Operating systems, compilers, game development, embedded systems, and high-performance applications.</li>
+                <li><strong>Setting up the Environment:</strong> Install GCC or an <a href="https://www.geeksforgeeks.org/c-language-introduction/?ref=shm" target="_blank">Learn More</a> IDE like Code::Blocks or Visual Studio Code.</li>
+            </ul>
+
+            <h3>Structure of a C Program</h3>
+            <p>Sections of the C Program
+                There are 6 basic sections responsible for the proper execution of a program. Sections are mentioned below:
+                <ul>
+                    <li>1. Documentation</li>
+                    <li>2. Preprocessor Section</li>
+                    <li>3. Definition</li>
+                    <li>4. Global Declaration</li>
+                    <li>5. Main() Function</li>
+                    <li>6. Sub Programs</li>
+                    <a href="https://www.geeksforgeeks.org/structure-of-c-program/" target="_blank">Learn More</a>
+                </ul>
+            </p>
+
+            <h3>Data Types and Variables</h3>
+            <ul>
+                <li><strong>Basic Data Types:</strong> <code>int</code>, <code>float</code>, <code>char</code>, <code>double</code>.</li>
+                <li><strong>Variable Declaration:</strong> <code>int age = 25;</code>, <code>float pi = 3.14;</code></li>
+                <li><strong>Constants:</strong> Use <code>#define</code> or <code>const</code>.</li>
+                <a href="https://www.geeksforgeeks.org/data-types-in-c/" target="_blank">Learn More</a>
+            </ul>
+
+            <h3>Input and Output</h3>
+            <ul>
+                <li><strong>Using <code>printf</code> and <code>scanf</code>:</strong></li>
+                <pre>
+int age;
+printf("Enter your age: ");
+scanf("%d", &age);
+                </pre>
+                <li><strong>Format Specifiers:</strong> <code>%d</code>, <code>%f</code>, <code>%c</code>, <code>%s</code>.</li>
+                <a href="https://www.geeksforgeeks.org/basic-input-and-output-in-c/" target="_blank">Learn More</a>
+            </ul>
+
+            <h3>Applications of C</h3>
+<p>C programming is used in various fields due to its speed and efficiency. Here are some key applications:</p>
+<ul>
+    <li><strong>Operating Systems:</strong> C is used to write operating systems like UNIX and Linux, providing low-level memory access and hardware interaction.</li>
+    <li><strong>Compilers:</strong> C is used to create compilers for other languages, such as the GCC compiler.</li>
+    <li><strong>Embedded Systems:</strong> C is popular for programming embedded systems in devices like microcontrollers and robotics.</li>
+    <li><strong>Game Development:</strong> C is used in game engines and frameworks for performance-critical applications.</li>
+    <li><strong>High-Performance Applications:</strong> C powers simulation software, image processing, and scientific applications that require speed.</li>
+    <a href="https://techvidvan.com/tutorials/applications-of-c-language/" target="_blank">Learn More</a>
+</ul>
+
+
+        </div>
+        <div class="technology-section">
+            <h2>C Projects</h2>
+            
+            <!-- Beginner Projects -->
+            <div class="related-projects">
+                <h3>Beginner Projects</h3>
+                <ul>
+                    <li>Basic Calculator</li>
+                    <li>File Handling Operations</li>
+                    <li>Simple ATM System</li>
+                </ul>
+            </div>
+        
+            <!-- Intermediate Projects -->
+            <div class="related-projects">
+                <h3>Intermediate Projects</h3>
+                <ul>
+                    <li>Bank Account Management System</li>
+                    <li>Library Management System</li>
+                    <li>Student Database Management System</li>
+                </ul>
+            </div>
+        
+            <!-- Advanced Projects -->
+            <div class="related-projects">
+                <h3>Advanced Projects</h3>
+                <ul>
+                    <li>File Compression Algorithm</li>
+                    <li>Command-line Chess Game</li>
+                    <li>Database Management System in C</li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+        <div class="video-links">
+            <button id="toggle-videos">Video Resources</button>
+            <div id="video-container" style="display: none;">
+                <a href="https://www.youtube.com/watch?v=KJgsSFOSQv0" class="video-link" target="_blank">C tutorial1</a>
+                <a href="https://www.youtube.com/watch?v=ZSPZob_1TOk" class="video-link" target="_blank">C tutorial2</a>
+                <a href="https://youtu.be/7Rb3ZJetvA8" class="video-link" target="_blank">C tutorial3</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('toggle-videos').addEventListener('click', function () {
+            const videoContainer = document.getElementById('video-container');
+            const isHidden = videoContainer.style.display === 'none' || videoContainer.style.display === '';
+            videoContainer.style.display = isHidden ? 'flex' : 'none';
+        });
+    </script>
+</body>
+</html>

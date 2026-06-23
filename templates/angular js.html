@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Roadmap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/api.css') }}">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="center-links">
+                <li><a href="{{ url_for('index') }}" id="home-btn" class="{{ 'active' if request.endpoint == 'index' else '' }}">Home</a></li>
+                <li><a href="{{ url_for('technology_home') }}" id="resources-btn" class="{{ 'active' if request.endpoint == 'technology_home' else '' }}">Technology</a></li>
+                <li><a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="{{ url_for('favorites') }}" id="favorites-btn" class="{{ 'active' if request.endpoint == 'favorites' else '' }}">Favorites</a></li>
+                
+                <li class="logout"><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="tech-section">
+        <h2>Angular</h2>
+        <div class="tech-and-projects">
+        <div class="tech-container">
+            <form action="{{ url_for('add_to_favorites') }}" method="POST">
+                <input type="hidden" name="tech_name" value="{{ tech_name }}"> <!-- tech_name will be dynamic based on the technology -->
+                <button type="submit" class="add-favorites-btn">Add to Favorites</button>
+            </form>
+            <h3>1. Learn the Basics</h3>
+            <p>Understand TypeScript, Angular CLI, and the project structure. Start with basic concepts like components, templates, and modules. Explore resources <a href="https://angular.io/start" target="_blank"> Learn more</a>.</p>
+            
+            <h3>2. Master Components</h3>
+            <p>Learn how to create reusable components, manage inputs and outputs, and implement lifecycle hooks.<a href="https://angular.io/guide/architecture-components" target="_blank"> Learn more</a>.</p>
+            
+            <h3>3. Routing and Navigation</h3>
+            <p>Understand Angular Router for navigation, lazy loading modules, and guard implementations for route security.<a href="https://angular.dev/guide/routing" target="_blank"> Learn more</a>.</p>
+            
+            <h3>4. Services and Dependency Injection</h3>
+            <p>Master creating services to manage logic and data. Understand dependency injection and its benefits in Angular<a href="https://www.geeksforgeeks.org/angular-dependency-injection/" target="_blank"> Learn more</a>.</p>
+            
+            <h3>5. RxJS and Observables</h3>
+            <p>Learn to handle asynchronous data streams effectively using RxJS. Understand observables, subjects, and operators.<a href="https://v17.angular.io/guide/rx-library" target="_blank"> Learn more</a>.</p>
+            
+            <h3>6. Forms and Validation</h3>
+            <p>Implement template-driven and reactive forms. Learn to validate forms and display error messages dynamically.<a href="https://angular.dev/tutorials/learn-angular/18-forms-validation" target="_blank"> Learn more</a>.</p>
+
+        </div>
+        <div class="technology-section">
+            <h2>Angular Projects</h2>
+            
+            <!-- Beginner Projects -->
+            <div class="related-projects">
+                <h3>Beginner Projects</h3>
+                <ul>
+                    <li>Angular Todo List</li>
+                    <li>Personal Portfolio using Angular</li>
+                    <li>Basic CRUD App</li>
+                </ul>
+            </div>
+        
+            <!-- Intermediate Projects -->
+            <div class="related-projects">
+                <h3>Intermediate Projects</h3>
+                <ul>
+                    <li>Angular Chat App</li>
+                    <li>Task Management Dashboard</li>
+                    <li>Movie Search Application</li>
+                </ul>
+            </div>
+        
+            <!-- Advanced Projects -->
+            <div class="related-projects">
+                <h3>Advanced Projects</h3>
+                <ul>
+                    <li>Enterprise Dashboard with Angular</li>
+                    <li>Multi-user Blog System with Angular and Firebase</li>
+                    <li>Real-time Collaborative App</li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+        <div class="video-links">
+            <button id="toggle-videos">Video Resources</button>
+            <div id="video-container" style="display: none;">
+                <a href="https://www.youtube.com/watch?v=3qBXWUpoPHo" class="video-link" target="_blank">Angular Tutorial-1</a>
+                <a href="https://www.youtube.com/watch?v=k5E2AVpwsko" class="video-link" target="_blank">Angular Tutorial-2</a>
+                <a href="https://www.youtube.com/watch?v=KhzGSHNhnbI" class="video-link" target="_blank">Angular Tutorial-3</a>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.getElementById('toggle-videos').addEventListener('click', function () {
+            const videoContainer = document.getElementById('video-container');
+            const isHidden = videoContainer.style.display === 'none' || videoContainer.style.display === '';
+            videoContainer.style.display = isHidden ? 'flex' : 'none';
+        });
+    </script>
+</body>
+</html>

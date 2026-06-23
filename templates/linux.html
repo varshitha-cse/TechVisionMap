@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Roadmap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/api.css') }}">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="center-links">
+                <li><a href="{{ url_for('index') }}" id="home-btn" class="{{ 'active' if request.endpoint == 'index' else '' }}">Home</a></li>
+                <li><a href="{{ url_for('technology_home') }}" id="resources-btn" class="{{ 'active' if request.endpoint == 'technology_home' else '' }}">Technology</a></li>
+                <li><a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="{{ url_for('favorites') }}" id="favorites-btn" class="{{ 'active' if request.endpoint == 'favorites' else '' }}">Favorites</a></li>
+                
+                <li class="logout"><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="tech-section">
+        <h2>Linux</h2>
+        <div class="tech-and-projects">
+        <div class="tech-container">
+            <form action="{{ url_for('add_to_favorites') }}" method="POST">
+                <input type="hidden" name="tech_name" value="{{ tech_name }}"> <!-- tech_name will be dynamic based on the technology -->
+                <button type="submit" class="add-favorites-btn">Add to Favorites</button>
+            </form>
+            <h3>Introduction to Linux</h3>
+            <p>
+                Linux is a free, open-source operating system that powers a wide variety of devices, from servers to mobile phones. 
+                Get started with Linux basics and terminal commands at 
+                <a href="https://www.tutorialspoint.com/unix/index.htm" target="_blank">Learn more</a>.
+            </p>
+            
+            <h3>Linux File System</h3>
+            <p>
+                The Linux file system is hierarchical and includes directories like <code>/home</code>, <code>/etc</code>, and <code>/var</code>. 
+                Learn more about Linux file system structure at 
+                <a href="https://www.geeksforgeeks.org/linux-file-system/" target="_blank">Learn more</a>.
+            </p>
+
+            <h3>Basic Linux Commands</h3>
+            <p>
+                Commands like <code>ls</code>, <code>cd</code>, <code>mkdir</code>, and <code>rm</code> are essential for navigating the Linux terminal. 
+                Refer to the command cheat sheet at 
+                <a href="https://ubuntu.com/tutorials/command-line-for-beginners#1-overview" target="_blank">Learn more</a>.
+            </p>
+
+            <h3>Package Management</h3>
+            <p>
+                Manage software using tools like <code>apt</code>, <code>yum</code>, or <code>dnf</code> depending on your Linux distribution. 
+                Learn more at 
+                <a href="https://linuxize.com/post/how-to-use-apt-command/" target="_blank">Learn more</a>.
+            </p>
+            
+            <h3>Shell Scripting</h3>
+            <p>
+                Automate tasks with shell scripting. Write scripts using bash and learn to use loops, conditions, and variables. 
+                Explore scripting at 
+                <a href="https://www.tutorialspoint.com/unix/unix-shell-scripting.htm" target="_blank">Learn more</a>.
+            </p>
+
+            <h3>Advanced Linux Topics</h3>
+            <ul>
+                <li><strong>Kernel Compilation:</strong> Learn how to compile and customize your Linux kernel.</li>
+                <li><strong>Networking:</strong> Explore advanced networking concepts like IP routing and firewalls.</li>
+                <li><strong>Linux Containers:</strong> Learn to work with Docker and LXC for virtualization.</li>
+                <li><strong>Linux Security:</strong> Explore advanced security concepts such as SELinux, AppArmor, and file system encryption.</li>
+                <a href="https://aptronsolutions.com/viewblogf/best-advance-topics-in-linux.html" target="_blank">Learn more</a>.
+            
+            </ul>
+
+            <h3>Linux Certification</h3>
+            <ul>
+                <li><a href="https://www.lpi.org/our-certifications" target="_blank">Linux Professional Institute Certifications</a></li>
+                <li><a href="https://www.redhat.com/en/services/training-and-certification" target="_blank">Red Hat Certification</a></li>
+                <li><a href="https://www.udemy.com/course/linux-server-security/" target="_blank">Linux Server Security Certification on Udemy</a></li>
+            </ul>
+
+            <h3>Popular Linux Distributions</h3>
+            <ul>
+                <li><strong>Ubuntu:</strong> A beginner-friendly distribution based on Debian.</li>
+                <li><strong>Debian:</strong> Known for its stability and long release cycles.</li>
+                <li><strong>Fedora:</strong> A cutting-edge distribution sponsored by Red Hat.</li>
+                <li><strong>CentOS:</strong> Enterprise-focused Linux distribution.</li>
+                <a href="https://www.geeksforgeeks.org/8-most-popular-linux-distributions/" target="_blank">Learn more</a>.
+            
+            </ul>
+        </div>
+        <div class="technology-section">
+            <h2>Tasks</h2>
+            
+            <!-- Beginner Projects -->
+            <div class="related-projects">
+                <h3>Beginner Tasks</h3>
+                <ul>
+                    <li>Basic Bash Scripting</li>
+                    <li>File System Navigation and Management</li>
+                    <li>Simple Cron Jobs for Automation</li>
+                </ul>
+            </div>
+        
+            <!-- Intermediate Projects -->
+            <div class="related-projects">
+                <h3>Intermediate Tasks</h3>
+                <ul>
+                    <li>Server Configuration and Management</li>
+                    <li>Web Server Setup (Apache or Nginx)</li>
+                    <li>Database Management with MySQL or PostgreSQL on Linux</li>
+                </ul>
+            </div>
+        
+            <!-- Advanced Projects -->
+            <div class="related-projects">
+                <h3>Advanced Tasks</h3>
+                <ul>
+                    <li>Linux-based DevOps Pipeline</li>
+                    <li>Build a Secure Linux Server</li>
+                    <li>Container Orchestration with Kubernetes on Linux</li>
+                </ul>
+            </div>
+        </div>
+        
+        </div>
+        <div class="video-links">
+            <button id="toggle-videos">Video Resources</button>
+            <div id="video-container" style="display: none;">
+                
+                <a href="https://www.youtube.com/watch?v=wBp0Rb-ZJak" class="video-link" target="_blank">Linux Tutorial1</a>
+                <a href="https://www.youtube.com/watch?v=cBokz0LTizk" class="video-link" target="_blank">Linux Tutorial2</a>
+                <a href="https://www.youtube.com/watch?v=v_1zB2WNN14" class="video-link" target="_blank">Linux Tutorial3</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('toggle-videos').addEventListener('click', function () {
+            const videoContainer = document.getElementById('video-container');
+            const isHidden = videoContainer.style.display === 'none' || videoContainer.style.display === '';
+            videoContainer.style.display = isHidden ? 'flex' : 'none';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Vision Map</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="center-links">
+                <li><a href="{{ url_for('index') }}" id="home-btn" class="{{ 'active' if request.endpoint == 'index' else '' }}">Home</a></li>
+                <li><a href="{{ url_for('technology_home') }}" id="resources-btn" class="{{ 'active' if request.endpoint == 'technology_home' else '' }}">Technology</a></li>
+                <li><a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="{{ url_for('favorites') }}" id="favorites-btn" class="{{ 'active' if request.endpoint == 'favorites' else '' }}">Favorites</a></li>
+                
+                <li class="logout"><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="welcome-section">
+        <div class="welcome-text">
+            <h1>Welcome to Tech Vision Map</h1>
+            <p>Start your tech journey with us.</p>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('home-btn').addEventListener('click', function () {
+            document.querySelector('.welcome-section').style.display = 'flex';
+            document.getElementById('interactive-content').style.display = 'none';
+        });
+
+        document.getElementById('resources-btn').addEventListener('click', function () {
+            document.querySelector('.welcome-section').style.display = 'none';
+            document.getElementById('interactive-content').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

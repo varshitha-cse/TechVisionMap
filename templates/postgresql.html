@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostgreSQL Roadmap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/api.css') }}">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="center-links">
+                <li><a href="{{ url_for('index') }}" id="home-btn" class="{{ 'active' if request.endpoint == 'index' else '' }}">Home</a></li>
+                <li><a href="{{ url_for('technology_home') }}" id="resources-btn" class="{{ 'active' if request.endpoint == 'technology_home' else '' }}">Technology</a></li>
+                <li><a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="{{ url_for('favorites') }}" id="favorites-btn" class="{{ 'active' if request.endpoint == 'favorites' else '' }}">Favorites</a></li>
+                
+                <li class="logout"><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="tech-section">
+        <h2>PostgreSQL</h2>
+        <div class="tech-and-projects">
+        <div class="tech-container">
+            <form action="{{ url_for('add_to_favorites') }}" method="POST">
+                <input type="hidden" name="tech_name" value="{{ tech_name }}"> <!-- tech_name will be dynamic based on the technology -->
+                <button type="submit" class="add-favorites-btn">Add to Favorites</button>
+            </form>
+            <h3>Learn SQL Basics</h3>
+            <p>Start with the fundamentals of SQL including SELECT, INSERT, UPDATE, DELETE statements. Explore more <a href="https://www.sqltutorial.org/" target="_blank">Learn more</a>.</p>
+            
+            <h3>PostgreSQL Syntax</h3>
+            <p>Understand PostgreSQL-specific features such as its data types, operators, and unique functions. Explore the official documentation <a href="https://www.postgresql.org/docs/current/sql-commands.html" target="_blank">Learn more</a>.</p>
+            
+            <h3>Database Design</h3>
+            <p>Learn how to design normalized databases, create tables, and establish relationships between them. Learn more on database design <a href="https://support.microsoft.com/en-us/office/database-design-basics-eb2159cf-1e30-401a-8084-bd4f9c9ca1f5" target="_blank">Learn more</a>.</p>
+            
+            <h3> Advanced PostgreSQL Features</h3>
+            <p>Learn about advanced features like indexing, full-text search, triggers, and stored procedures. Explore advanced PostgreSQL features <a href="https://www.postgresql.org/docs/7.1/advanced.html" target="_blank">Learn more</a>.</p>
+            
+            <h3>Performance Optimization</h3>
+            <p>Learn how to optimize PostgreSQL queries, analyze execution plans, and use EXPLAIN for query optimization. You can start learning with this guide <a href="https://www.postgresql.org/docs/current/using-explain.html" target="_blank">Learn more</a></p>
+            
+            <h3>PostgreSQL Deployment</h3>
+            <p>Learn how to deploy PostgreSQL databases on cloud platforms like AWS or on-premise servers. Explore tutorials <a href="https://docs.railway.com/guides/postgresql" target="_blank">Learn more</a>.</p>
+        </div>
+        <div class="technology-section">
+            <h2>PostgreSQL Projects</h2>
+            
+            <!-- Beginner Projects -->
+            <div class="related-projects">
+                <h3>Beginner Projects</h3>
+                <ul>
+                    <li>Basic CRUD Operations</li>
+                    <li>User Authentication Database</li>
+                    <li>Simple Blog System</li>
+                </ul>
+            </div>
+        
+            <!-- Intermediate Projects -->
+            <div class="related-projects">
+                <h3>Intermediate Projects</h3>
+                <ul>
+                    <li>E-commerce Product Database</li>
+                    <li>Customer Relationship Management (CRM) System</li>
+                    <li>Data Analytics Dashboard with PostgreSQL</li>
+                </ul>
+            </div>
+        
+            <!-- Advanced Projects -->
+            <div class="related-projects">
+                <h3>Advanced Projects</h3>
+                <ul>
+                    <li>Data Warehousing for Business Intelligence</li>
+                    <li>Real-time Data Streaming with PostgreSQL</li>
+                    <li>Scalable Multi-tenant Application with PostgreSQL</li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+        <div class="video-links">
+            <button id="toggle-videos">Video Resources</button>
+            <div id="video-container" style="display: none;">
+                <a href="https://www.youtube.com/watch?v=qw--VYLpxG4" class="video-link" target="_blank">PostgreSQL Tutorial-1</a>
+                <a href="https://www.youtube.com/watch?v=zw4s3Ey8ayo" class="video-link" target="_blank">PostgreSQL Tutorial-2</a>
+                <a href="https://www.youtube.com/watch?v=9ZixI8Xy0T0" class="video-link" target="_blank">PostgreSQL Tutorial-3</a>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.getElementById('toggle-videos').addEventListener('click', function () {
+            const videoContainer = document.getElementById('video-container');
+            const isHidden = videoContainer.style.display === 'none' || videoContainer.style.display === '';
+            videoContainer.style.display = isHidden ? 'flex' : 'none';
+        });
+    </script>
+</body>
+</html>

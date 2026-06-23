@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Roadmap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/api.css') }}">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="center-links">
+                <li><a href="{{ url_for('index') }}" id="home-btn" class="{{ 'active' if request.endpoint == 'index' else '' }}">Home</a></li>
+                <li><a href="{{ url_for('technology_home') }}" id="resources-btn" class="{{ 'active' if request.endpoint == 'technology_home' else '' }}">Technology</a></li>
+                <li><a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="{{ url_for('favorites') }}" id="favorites-btn" class="{{ 'active' if request.endpoint == 'favorites' else '' }}">Favorites</a></li>
+                
+                <li class="logout"><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="tech-section">
+        <h2>Cybersecurity</h2>
+        <div class="tech-and-projects">
+        <div class="tech-container">
+            <form action="{{ url_for('add_to_favorites') }}" method="POST">
+                <input type="hidden" name="tech_name" value="{{ tech_name }}"> <!-- tech_name will be dynamic based on the technology -->
+                <button type="submit" class="add-favorites-btn">Add to Favorites</button>
+            </form>
+            <h3>What is Cybersecurity?</h3>
+            <p>Cybersecurity means protecting computers, networks, and data from attacks. It’s important to keep your personal information safe and businesses secure.
+            <a href="https://www.geeksforgeeks.org/cyber-security-types-and-importance/" target="_blank">Learn more</a></p>
+
+            <h3>Basics of Networking</h3>
+            <p>Understand IP addresses, protocols like HTTP and SSH, and tools like firewalls and VPNs to secure online activity.
+            <a href="https://www.w3schools.com/cybersecurity/cybersecurity_networking.php" target="_blank">Learn more</a></p>
+
+            <h3>Operating Systems (OS)</h3>
+            <p>Learn about Windows, Linux, and macOS security features, such as permissions and antivirus software.
+            <a href="https://www.geeksforgeeks.org/operating-system-security/" target="_blank">Learn more</a></p>
+
+            <h3>Cyber Threats and Attacks</h3>
+            <p>Explore common attacks like malware, phishing, and DDoS, as well as serious threats like Advanced Persistent Threats (APTs).
+            <a href="https://www.imperva.com/learn/application-security/cyber-security-threats/" target="_blank">Learn more</a></p>
+
+            <h3>Cryptography (Secret Codes)</h3>
+            <p>Understand symmetric and asymmetric encryption methods, and how cryptography secures online transactions and communications.
+            <a href="https://www.geeksforgeeks.org/cryptography-tutorial/" target="_blank">Learn more</a></p>
+
+            <h3>Finding Weaknesses</h3>
+            <p>Use tools like Nmap and Nessus to find system flaws and secure them by updating software and configurations.
+            <a href="https://www.freecodecamp.org/news/what-is-nmap-and-how-to-use-it-a-tutorial-for-the-greatest-scanning-tool-of-all-time/" target="_blank">Learn more</a></p>
+        
+
+            <h3>Tools for Protection</h3>
+            <p>Discover antivirus solutions, SIEM software, and IDS/IPS systems for enhanced monitoring and threat detection.
+            <a href="https://www.splunk.com/en_us/blog/learn/what-splunk-does.html" target="_blank">Learn more</a></p>
+            
+
+            <h3> What to Do After an Attack</h3>
+            <p>Learn the steps to follow after a cyber attack, including containment, recovery, and forensics.
+            <a href="https://travasecurity.com/learn-with-trava/blog/8-things-to-do-immediately-after-a-cyber-attack/" target="_blank">Learn more</a></p>
+
+            <h3>Ethical Hacking (Pen Testing)</h3>
+            <p>Explore the ethical hacking process and tools like Metasploit and Wireshark for penetration testing and network monitoring.
+            <a href="https://www.geeksforgeeks.org/introduction-to-ethical-hacking/" target="_blank">Learn more</a></p>
+            
+    
+
+            <h3>Rules and Compliance</h3>
+            <p>Understand GDPR, ISO standards, and how risk assessments can help organizations maintain compliance and trust.
+            <a href="https://gdpr-info.eu/" target="_blank">Learn more</a></p>
+        
+
+            <h3> Advanced Cybersecurity Areas</h3>
+            <p>Learn about cloud security, IoT security, app security, and the role of AI in cybersecurity.</p>
+            
+            
+
+            <h3> Building a Career in Cybersecurity</h3>
+            <p>Discover cybersecurity certifications like Security+ and CEH, and career paths such as analysts, engineers, and ethical hackers.
+            <a href="https://www.geeksforgeeks.org/cybersecurity-roadmap/" target="_blank">Learn more</a></p>
+            
+
+            <h3> Future of Cybersecurity</h3>
+            <p>Explore emerging threats like AI-powered attacks, and defenses like Zero Trust models and smarter security systems.
+            <a href="https://www.cybersecurity-insiders.com/" target="_blank">Learn more</a></p>
+        </div>
+        <div class="technology-section">
+            <h2>Cybersecurity Projects</h2>
+            
+            <!-- Beginner Projects -->
+            <div class="related-projects">
+                <h3>Beginner Projects</h3>
+                <ul>
+                    <li>Basic Firewall Setup</li>
+                    <li>Password Manager</li>
+                    <li>Phishing Detection Web App</li>
+                </ul>
+            </div>
+        
+            <!-- Intermediate Projects -->
+            <div class="related-projects">
+                <h3>Intermediate Projects</h3>
+                <ul>
+                    <li>Two-Factor Authentication Implementation</li>
+                    <li>Network Traffic Monitoring Tool</li>
+                    <li>Vulnerability Scanning Tool</li>
+                </ul>
+            </div>
+        
+            <!-- Advanced Projects -->
+            <div class="related-projects">
+                <h3>Advanced Projects</h3>
+                <ul>
+                    <li>Penetration Testing Toolkit</li>
+                    <li>Intrusion Detection System</li>
+                    <li>Real-time Malware Detection</li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+        <div class="video-links">
+            <button id="toggle-videos">Video Resources</button>
+            <div id="video-container" style="display: none;">
+                <a href="https://youtu.be/z5nc9MDbvkw" class="video-link" target="_blank">Cybersecurity Tutorial1</a>
+                <a href="https://youtu.be/BnmneAjVrM4" class="video-link" target="_blank">Cybersecurity Tutorial2</a>
+                <a href="https://youtu.be/9chKCUQ8_VQ" class="video-link" target="_blank">Cybersecurity Tutorial3</a>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.getElementById('toggle-videos').addEventListener('click', function () {
+            const videoContainer = document.getElementById('video-container');
+            const isHidden = videoContainer.style.display === 'none' || videoContainer.style.display === '';
+            videoContainer.style.display = isHidden ? 'flex' : 'none';
+        });
+    </script>
+</body>
+</html>

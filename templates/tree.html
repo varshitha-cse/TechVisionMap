@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trees</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/api.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Header with navigation bar -->
+    <header>
+        <nav>
+            <ul class="center-links">
+                <li><a href="{{ url_for('index') }}" id="home-btn" class="{{ 'active' if request.endpoint == 'index' else '' }}">Home</a></li>
+                <li><a href="{{ url_for('technology_home') }}" id="resources-btn" class="{{ 'active' if request.endpoint == 'technology_home' else '' }}">Technology</a></li>
+                <li><a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="{{ url_for('favorites') }}" id="favorites-btn" class="{{ 'active' if request.endpoint == 'favorites' else '' }}">Favorites</a></li>
+                
+                <li class="logout"><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content section -->
+    <section class="tech-section">
+        <h2>Trees</h2>
+        <div class="tech-and-projects">
+        <div class="tech-container">
+            <form action="{{ url_for('add_to_favorites') }}" method="POST">
+                <input type="hidden" name="tech_name" value="{{ tech_name }}"> <!-- tech_name will be dynamic based on the technology -->
+                <button type="submit" class="add-favorites-btn">Add to Favorites</button>
+            </form>
+            <br>
+            <h4>Tree</h4>
+            <p>A tree is a hierarchical data structure consisting of nodes connected by edges. It is used to represent data that has a natural hierarchical structure, such as organizational charts, file systems, or network routing paths. Trees are efficient for searching, inserting, and deleting data.</p>
+
+            <h4>Key Concepts of Trees</h4>
+            <h5>Structure</h5>
+            <ul>
+                <li><strong>Root Node:</strong> The topmost node in the tree that serves as the entry point to the structure.</li>
+                <li><strong>Parent and Child Nodes:</strong> Parent nodes have direct connections to child nodes, with each node (except the root) having one parent.</li>
+                <li><strong>Leaf Nodes:</strong> Nodes that have no children. They are the endpoints in the tree.</li>
+                <li><strong>Edges:</strong> The connections between nodes.</li>
+            </ul>
+
+            <h5>Types of Trees</h5>
+            <ul>
+                <li><strong>Binary Tree:</strong> A tree where each node has at most two children (left and right).</li>
+                <li><strong>Binary Search Tree (BST):</strong> A binary tree where each node’s left child is smaller, and the right child is larger than the parent node.</li>
+                <li><strong>AVL Tree:</strong> A self-balancing binary search tree where the height difference between the left and right subtrees is at most 1.</li>
+                <li><strong>Heap:</strong> A tree-based structure used to represent priority queues. It satisfies the heap property.</li>
+                <li><strong>Trie:</strong> A tree used to store strings, where each node represents a character.</li>
+                <li><strong>B-Tree:</strong> A balanced tree used in databases and file systems for efficient search and access.</li>
+                <li><strong>Red-Black Tree:</strong> A self-balancing binary search tree with additional properties to maintain balance during insertions and deletions.</li>
+            </ul>
+
+            <h5> Operations on Trees</h5>
+            <ul>
+                <li><strong>Insertion:</strong> Adding a new node to the tree.</li>
+                <li><strong>Deletion:</strong> Removing a node from the tree.</li>
+                <li><strong>Traversal:</strong> Visiting each node in a specific order (e.g., inorder, preorder, postorder).</li>
+                <li><strong>Search:</strong> Finding a node in the tree by its value.</li>
+            </ul>
+
+            <h5>Real-World Analogy</h5>
+            <p><strong>Family Tree:</strong> A family tree is a good example of a hierarchical structure. The root would represent the oldest generation, and branches represent generations below it.</p>
+
+            <h5> Applications of Trees</h5>
+            <ul>
+                <li><strong>File Systems:</strong> Files and directories are represented as trees in a hierarchical structure.</li>
+                <li><strong>Database Indexing:</strong> B-Trees and Red-Black trees are used in database indexing for quick data retrieval.</li>
+                <li><strong>Routing Algorithms:</strong> Trees are used to represent network routing paths.</li>
+                <li><strong>Decision Making:</strong> Decision trees are used in machine learning for classification and regression tasks.</li>
+            </ul>
+
+            <h5>Advantages of Trees</h5>
+            <ul>
+                <li>Efficient searching, insertion, and deletion operations, especially with balanced trees.</li>
+                <li>Hierarchical structure that mirrors many real-world problems, such as organizational charts and decision-making processes.</li>
+                <li>Dynamic structure, where nodes can be added or removed easily.</li>
+            </ul>
+
+            <h5>Disadvantages of Trees</h5>
+            <ul>
+                <li>Complexity in implementing self-balancing trees like AVL or Red-Black trees.</li>
+                <li>Memory overhead due to the storage of child node references and additional data like height or balance factors.</li>
+            </ul>
+            <h5 align="right"><a href="https://www.geeksforgeeks.org/introduction-to-tree-data-structure/" target="_blank">Learn more</a> about trees</h5>
+        </div>
+        <div class="technology-section">
+            <h2>Trees Tasks</h2>
+            
+            <!-- Beginner Projects -->
+            <div class="related-projects">
+                <h3>Beginner Tasks</h3>
+                <ul>
+                    <li>Binary Tree Traversals</li>
+                    <li>Insert Node in Binary Search Tree</li>
+                    <li>Find Maximum Depth of Tree</li>
+                </ul>
+            </div>
+        
+            <!-- Intermediate Projects -->
+            <div class="related-projects">
+                <h3>Intermediate Tasks</h3>
+                <ul>
+                    <li>Level Order Traversal of Binary Tree</li>
+                    <li>Implement AVL Tree (Self-Balancing)</li>
+                    <li>Find Lowest Common Ancestor in a Binary Tree</li>
+                </ul>
+            </div>
+        
+            <!-- Advanced Projects -->
+            <div class="related-projects">
+                <h3>Advanced Tasks</h3>
+                <ul>
+                    <li>Segment Tree Implementation</li>
+                    <li>Trie Data Structure</li>
+                    <li>Binary Search Tree for Range Queries</li>
+                </ul>
+            </div>
+        </div>
+        
+</div>
+        <!-- Video Resources Section -->
+        <div class="video-links">
+            <button id="toggle-videos">Video Resources</button>
+            <div id="video-container" style="display: none;">
+                <a href="https://www.youtube.com/watch?v=YAdLFsTG70w" class="video-link" target="_blank">Trees Tutorial-1</a>
+                <a href="https://www.youtube.com/watch?v=I_JuQ5ayPmc" class="video-link" target="_blank">Trees Tutorial-2</a>
+                <a href="https://www.youtube.com/watch?v=1-l_UOFi1Xw" class="video-link" target="_blank">Trees Tutorial-3</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('toggle-videos').addEventListener('click', function () {
+            const videoContainer = document.getElementById('video-container');
+            const isHidden = videoContainer.style.display === 'none' || videoContainer.style.display === '';
+            videoContainer.style.display = isHidden ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>

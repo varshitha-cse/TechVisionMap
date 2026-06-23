@@ -1,0 +1,262 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('https://i.pinimg.com/originals/8e/f5/b2/8ef5b2088947661859ed3f0d2ff67349.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+}
+/* Center the heading within the tech-section */
+.tech-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Header Section */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.center-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.center-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.center-links li a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #007bff;
+}
+
+/* Tech and Projects Container */
+.tech-and-projects {
+    display: flex;
+    gap: 20px;
+    padding: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+}
+
+/* Tech Container */
+.tech-container {
+    position: relative;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    width: 70%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #000;
+    flex-grow: 1; /* Ensure tech-container takes available space */
+}
+
+
+.tech-container h3 {
+    margin: 20px 0 10px;
+    font-size: 1.5rem;
+    color: #000; /* Ensure title is also black */
+}
+
+.tech-container p {
+    margin: 0 0 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #000; /* Ensure content text is black */
+}
+
+.add-favorites-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-favorites-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Related Projects Section */
+.technology-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 25%; /* Keep the width of the tech section */
+    max-width: 300px; /* Optional: Limit the max width */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #333;
+    font-family: Arial, sans-serif;
+    position: sticky;
+    top: 40px; /* Adjust based on the distance you want from the top */
+    align-self: flex-start; /* Align to the top */
+    height: auto; /* Adjust height dynamically */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tech-and-projects {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .tech-container, .technology-section {
+        width: 100%;
+    }}
+
+.technology-section h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.related-projects {
+    margin-bottom: 30px;
+}
+
+.related-projects h3 {
+    margin: 0 0 15px;
+    font-size: 1.5rem;
+    color: #000;
+}
+
+.related-projects ul {
+    list-style: disc;
+    padding-left: 20px;
+    font-size: 1rem;
+    color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tech-and-projects {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .tech-container, .technology-section {
+        width: 100%;
+    }
+}
+/* API Video Links Container */
+#video-container h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+}
+
+/* Video Links Container */
+#video-container {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Centers the links horizontally */
+    align-items: center; /* Ensures vertical centering */
+    padding: 10px;
+    width: 100%; /* Ensure full width for centering */
+}
+
+
+/* API Toggle Button */
+/* API Toggle Button */
+#toggle-videos {
+    display: block;
+    margin: 40px auto; /* Ensures the button is centered horizontally */
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    transition: background-color 0.3s;
+}
+
+
+#toggle-videos:hover {
+    background-color: #ddd;
+}
+
+
+/* API Video Link Styling */
+/* API Video Link Styling */
+.video-link {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid #0056b3;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    box-sizing: border-box;
+    width: auto; /* Allow link to size based on content */
+}
+
+.video-link:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Responsive Design for API Video Links */
+@media (max-width: 768px) {
+    .video-link {
+        flex: 1 1 calc(45% - 20px); /* Makes links responsive */
+        padding: 10px;
+    }
+}
+/* General styling for both tech-container and technology-section */
+.tech-container, .technology-section {
+    font-family: 'Arial', sans-serif; /* Ensure consistent font family */
+    color: #000; /* Set text color to black */
+}
+
+/* Heading (h3) styling */
+.tech-container h3, .technology-section h3 {
+    font-size: 1.5rem; /* Set same font size for headings */
+    font-weight: bold; /* Set same font thickness */
+    color: #000; /* Ensure both headings have the same color */
+    margin: 20px 0 10px;
+}
+
+/* Paragraph (p) styling */
+.tech-container p, .technology-section p {
+    font-size: 1rem; /* Set same font size for paragraphs */
+    line-height: 1.6;
+    color: #000; /* Ensure both paragraphs have the same color */
+    font-weight: normal; /* Same font weight for paragraphs */
+}

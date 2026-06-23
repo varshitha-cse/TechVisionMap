@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queues</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/api.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Header with navigation bar -->
+    <header>
+        <nav>
+            <ul class="center-links">
+                <li><a href="{{ url_for('index') }}" id="home-btn" class="{{ 'active' if request.endpoint == 'index' else '' }}">Home</a></li>
+                <li><a href="{{ url_for('technology_home') }}" id="resources-btn" class="{{ 'active' if request.endpoint == 'technology_home' else '' }}">Technology</a></li>
+                <li><a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="{{ url_for('favorites') }}" id="favorites-btn" class="{{ 'active' if request.endpoint == 'favorites' else '' }}">Favorites</a></li>
+                
+                <li class="logout"><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content section -->
+    <section class="tech-section">
+        <h2>Queues</h2>
+        <div class="tech-and-projects">
+        <div class="tech-container">
+            <form action="{{ url_for('add_to_favorites') }}" method="POST">
+                <input type="hidden" name="tech_name" value="{{ tech_name }}"> <!-- tech_name will be dynamic based on the technology -->
+                <button type="submit" class="add-favorites-btn">Add to Favorites</button>
+            </form>
+            <br>
+            <h4>Queue</h4>
+            <p>A queue is a fundamental data structure used in computer science that operates on a <strong>First-In-First-Out (FIFO)</strong> basis. This means that elements are added to the back (rear) of the queue and removed from the front. Queues are commonly used in scenarios where the order of processing matters, such as in scheduling tasks, managing requests in servers, or handling asynchronous data.</p>
+
+            <h4>Key Concepts of Queues</h4>
+            <h5> Structure</h5>
+            <ul>
+                <li><strong>Linear Arrangement:</strong> The items are placed one after another, like a line.</li>
+                <li><strong>Indexing:</strong> Each item has a position (index) that determines its location in the queue, starting from the front.</li>
+            </ul>
+
+            <h5>Characteristics</h5>
+            <ul>
+                <li><strong>Fixed Size:</strong> Some queues have a fixed size, while others can grow or shrink dynamically.</li>
+                <li><strong>FIFO (First-In-First-Out):</strong> The first element added is the first one to be removed.</li>
+                <li><strong>Enqueue/Dequeue:</strong> Operations where elements are added to the rear and removed from the front.</li>
+            </ul>
+
+            <h5>Operations</h5>
+            <ul>
+                <li><strong>Enqueue:</strong> The process of adding an element to the rear of the queue.</li>
+                <li><strong>Dequeue:</strong> The process of removing an element from the front of the queue.</li>
+                <li><strong>Front:</strong> Refers to the item that is at the front of the queue.</li>
+                <li><strong>Rear:</strong> Refers to the item that is at the back of the queue.</li>
+                <li><strong>Empty:</strong> A check to see if the queue is empty.</li>
+                <li><strong>Size:</strong> The number of elements in the queue.</li>
+            </ul>
+
+            <h5>Real-World Analogy</h5>
+            <p><strong>Line at a Ticket Counter:</strong> Imagine standing in a line at a ticket counter. The first person to get in line is the first one to be served.</p>
+
+            <h5>Types of Queues</h5>
+            <ul>
+                <li><strong>Simple Queue:</strong> A basic queue where elements are added to the rear and removed from the front.</li>
+                <li><strong>Circular Queue:</strong> A queue where the last position is connected to the first, creating a circular structure.</li>
+                <li><strong>Priority Queue:</strong> A queue where elements are dequeued based on priority, rather than the order they were added.</li>
+                <li><strong>Double-Ended Queue (Deque):</strong> A queue where elements can be added or removed from both ends.</li>
+            </ul>
+
+            <h5>Applications</h5>
+            <ul>
+                <li><strong>Task Scheduling:</strong> Queues manage the execution of tasks, ensuring they are processed in the order they arrive.</li>
+                <li><strong>Print Spooler:</strong> Queues manage print jobs, ensuring they are printed in order.</li>
+                <li><strong>Data Stream Processing:</strong> Queues help manage the flow of data in real-time systems.</li>
+                <li><strong>Graph Algorithms:</strong> Queues are used in algorithms like Breadth-First Search (BFS) for graph traversal.</li>
+            </ul>
+
+            <h5> Advantages</h5>
+            <ul>
+                <li>Efficient for FIFO operations where order matters.</li>
+                <li>Simple to implement and use in many scenarios.</li>
+                <li>Helpful in task scheduling and resource management.</li>
+            </ul>
+
+            <h5>Disadvantages</h5>
+            <ul>
+                <li>Fixed size queues may be inefficient if the number of tasks changes frequently.</li>
+                <li>Inserting and deleting elements may be slow in certain implementations, like those using arrays.</li>
+            </ul>
+            <h5 align="right"><a href="https://www.geeksforgeeks.org/queue-data-structure/" target="_blank">Learn more</a> about queues</h5>
+        </div>
+        <div class="technology-section">
+            <h2>Queues Tasks</h2>
+            
+            <!-- Beginner Projects -->
+            <div class="related-projects">
+                <h3>Beginner Tasks</h3>
+                <ul>
+                    <li>Queue Implementation</li>
+                    <li>Reverse Queue</li>
+                    <li>Queue using Two Stacks</li>
+                </ul>
+            </div>
+        
+            <!-- Intermediate Projects -->
+            <div class="related-projects">
+                <h3>Intermediate Tasks</h3>
+                <ul>
+                    <li>Implement Circular Queue</li>
+                    <li>Queue Simulation for Task Scheduling</li>
+                    <li>Priority Queue</li>
+                </ul>
+            </div>
+        
+            <!-- Advanced Projects -->
+            <div class="related-projects">
+                <h3>Advanced Tasks</h3>
+                <ul>
+                    <li>Implement Queue using Linked List</li>
+                    <li>Queue Operations in Network Packet Routing</li>
+                    <li>Implement Deque (Double-Ended Queue)</li>
+                </ul>
+            </div>
+        </div>
+        
+</div>
+        <!-- Video Resources Section -->
+        <div class="video-links">
+            <button id="toggle-videos">Video Resources</button>
+            <div id="video-container" style="display: none;">
+                <a href="https://www.youtube.com/watch?v=zp6pBNbUB2U" class="video-link" target="_blank">Queues Tutorial-1</a>
+                <a href="https://www.youtube.com/watch?v=yzj0Ch01Exo" class="video-link" target="_blank">Queues Tutorial-2</a>
+                <a href="https://www.youtube.com/watch?v=YMzZTTO2MpE" class="video-link" target="_blank">Queues Tutorial-3</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('toggle-videos').addEventListener('click', function () {
+            const videoContainer = document.getElementById('video-container');
+            const isHidden = videoContainer.style.display === 'none' || videoContainer.style.display === '';
+            videoContainer.style.display = isHidden ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>

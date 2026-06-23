@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <!-- Notification Area -->
+    <div class="notification" id="notification">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Login Form -->
+    <div class="container">
+        <div class="form-container login-container">
+            <h2>Welcome To Tech Vision Map</h2>
+            <p>Enter your credentials to login</p>
+            <form id="loginForm" method="POST" action="/login">
+                <div class="input-group">
+                    <input type="text" id="loginUsername" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="loginPassword" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+                
+                <div class="footer-text">
+                    <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Show and auto-hide notification
+const notification = document.getElementById('notification');
+if (notification.innerHTML.trim() !== "") {
+    notification.style.display = 'block'; // Show notification
+    setTimeout(() => {
+        notification.style.opacity = '0'; // Fade out
+        setTimeout(() => (notification.style.display = 'none'), 500); // Hide completely
+    }, 2000); // Display for 2 seconds
+}
+
+// Handle form submission
+document.getElementById('loginForm').addEventListener('submit', function (event) {
+    const username = document.getElementById('loginUsername').value.trim();
+    const password = document.getElementById('loginPassword').value.trim();
+
+    if (!username || !password) {
+        event.preventDefault(); // Prevent form submission
+        notification.innerHTML = '<div class="alert error">Please fill in all fields.</div>';
+        notification.style.display = 'block';
+        notification.style.opacity = '1';
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            setTimeout(() => (notification.style.display = 'none'), 500);
+        }, 2000); // Display for 2 seconds
+    }
+});
+
+// Close notification when clicking anywhere in the window
+window.addEventListener('click', function () {
+    if (notification.style.display === 'block') {
+        notification.style.opacity = '0'; // Fade out
+        setTimeout(() => (notification.style.display = 'none'), 500); // Hide completely
+    }
+});
+
+    </script>
+</body>
+</html>

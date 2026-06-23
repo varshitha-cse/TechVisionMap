@@ -1,0 +1,229 @@
+    /* General Styling */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-image: url('https://i.pinimg.com/originals/8e/f5/b2/8ef5b2088947661859ed3f0d2ff67349.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    /* Header Section */
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 15px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .center-links {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .center-links li a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .center-links li a:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        color: #007bff;
+    }
+
+    /* Main Content Section */
+    #interactive-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    /* Search Bar Container 
+    .search-container {
+        margin: 20px auto;
+        padding: 10px;
+        width: 80%;
+        max-width: 500px;
+        position: relative;
+        z-index: 5;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+*/
+    #search-bar {
+        width: 70%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Container for Main Categories and Technologies 
+    .container {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        width: 100%;
+    }*/
+    /* Center the second row below the search bar */
+/* Second Row Container */
+/* Second Row Container */
+/* Second Row Container */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the top of the row */
+    gap: 40px; /* Increase gap between the categories and technology sections */
+    margin-top: 20px; /* Spacing below the search bar */
+    width: 70%; /* Adjust width for more left/right space */
+    max-width: 1000px; /* Ensure it doesn't grow too wide */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 10px; /* Add additional padding for responsiveness */
+    min-height: 300px; /* Set a minimum height to increase container length */
+    background-color: #f8f9fa; /* Optional: Add a light background for visibility */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a soft shadow */
+}
+
+/* Individual Section (Categories/Technology) */
+.section {
+    margin: 10px; /* Add spacing around each section */
+    flex: 1; /* Optional: Let sections grow/shrink evenly */
+}
+
+/* Search Bar Container */
+.search-container {
+    margin: 20px auto;
+    padding: 10px 20px; /* Increase padding for better content spacing */
+    width: 70%; /* Reduce width to give more space on sides */
+    max-width: 600px; /* Slightly larger max width for better balance */
+    position: relative;
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(36, 34, 34, 0.2);
+    text-align: center;
+}
+
+
+
+    /* Left Column: Main Categories */
+    .categories {
+        width: 25%;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .category {
+        padding: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+
+    .category:hover {
+        background-color: #007bff;
+    }
+
+    /* Right Column: Technologies under Categories */
+    .technologies {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        position: relative;
+        text-align: center;
+        color: #0e0a0a;
+    }
+
+    /* Default Message for Empty State */
+    #default-message {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        color: #101010;
+        background-color: #f9f9f9;
+        border: 1px dashed #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .tech-group {
+        display: none;
+    }
+    
+    .tech-group.active {
+        display: block;
+    }
+    
+    .tech {
+        background-color: #e0e0e0;
+        padding: 10px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        margin-bottom: 10px;
+        width: 450px; /* Increase the width here */
+    }
+    
+    .tech:hover {
+        background-color: #007bff;
+        color: white;
+    }
+    
+    .tech a {
+        text-decoration: none;
+        color: inherit;
+        font-weight: bold;
+    }
+    
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .center-links {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .container {
+            flex-direction: column;
+            width: 90%;
+        }
+
+        .categories {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .technologies {
+            width: 100%;
+        }
+    }

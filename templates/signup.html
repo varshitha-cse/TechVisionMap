@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <!-- Notification Area -->
+    <div class="notification" id="notification">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Signup Form -->
+    <div class="container">
+        <div class="form-container signup-container">
+            <h2>Create an Account</h2>
+            <p>Join us today!</p>
+            <form id="signupForm" method="POST" action="/signup">
+                <div class="input-group">
+                    <input type="email" id="signupEmail" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="signupUsername" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="signupPassword" name="password" placeholder="Password" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="signupConfirmPassword" name="confirm_password" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit" class="btn-primary">Sign Up</button>
+                <div class="footer-text">
+                    <p>Already have an account? <a href="/login">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Show notification
+        const notification = document.getElementById('notification');
+        if (notification.innerHTML.trim() !== "") {
+            notification.style.display = 'block'; // Show notification
+        }
+    
+        // Handle form submission
+        document.getElementById('signupForm').addEventListener('submit', function (event) {
+            const email = document.getElementById('signupEmail').value;
+            const username = document.getElementById('signupUsername').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('signupConfirmPassword').value;
+    
+            if (!email || !username || !password || !confirmPassword) {
+                event.preventDefault();
+                notification.innerHTML = '<div class="alert error">Please fill in all fields.</div>';
+                notification.style.display = 'block';
+                return;
+            }
+    
+            if (password !== confirmPassword) {
+                event.preventDefault();
+                notification.innerHTML = '<div class="alert error">Passwords do not match.</div>';
+                notification.style.display = 'block';
+                return;
+            }
+    
+            if (password.length < 6) {
+                event.preventDefault();
+                notification.innerHTML = '<div class="alert error">Password must be at least 6 characters long.</div>';
+                notification.style.display = 'block';
+            }
+        });
+    
+        // Close notification when clicking anywhere on the page (outside the notification)
+        window.addEventListener('click', function (event) {
+            if (notification.style.display === 'block' && !event.target.closest('#notification')) {
+                notification.style.display = 'none'; // Hide notification when clicking outside
+            }
+        });
+    
+        // Prevent the notification from closing when clicked inside
+        notification.addEventListener('click', function (event) {
+            event.stopPropagation(); // Prevent the notification from closing if clicked inside
+        });
+    </script>
+    
+</body>
+</html>

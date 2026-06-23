@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="center-links">
+                <li><a href="{{ url_for('index') }}" id="home-btn">Home</a></li>
+                <li><a href="{{ url_for('technology_home') }}">Technology</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                <li class="active"><a href="{{ url_for('favorites') }}">Favorites</a></li>
+                <li class="logout"><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="tech-section">
+        <h2>Your Favorites</h2>
+        <h3 id="favorites-heading">Technologies</h3>
+        <div id="favorite-techs">
+            {% if favorites %}
+                <ul>
+                    {% for tech in favorites %}
+                        <li>
+                            <a href="{{ url_for('technology', tech_name=tech|lower) }}">{{ tech|capitalize }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>You haven't added any favorite technologies yet.</p>
+            {% endif %}
+        </div>
+    </section>
+    
+    
+</body>
+</html>

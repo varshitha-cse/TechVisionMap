@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hashtables</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/api.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Header with navigation bar -->
+    <header>
+        <nav>
+            <ul class="center-links">
+                <li><a href="{{ url_for('index') }}" id="home-btn" class="{{ 'active' if request.endpoint == 'index' else '' }}">Home</a></li>
+                <li><a href="{{ url_for('technology_home') }}" id="resources-btn" class="{{ 'active' if request.endpoint == 'technology_home' else '' }}">Technology</a></li>
+                <li><a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="{{ url_for('favorites') }}" id="favorites-btn" class="{{ 'active' if request.endpoint == 'favorites' else '' }}">Favorites</a></li>
+                
+                <li class="logout"><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content section -->
+    <section class="tech-section">
+        <h2>Hashtables</h2>
+        <div class="tech-and-projects">
+        
+        <div class="tech-container">
+            <form action="{{ url_for('add_to_favorites') }}" method="POST">
+                <input type="hidden" name="tech_name" value="{{ tech_name }}"> <!-- tech_name will be dynamic based on the technology -->
+                <button type="submit" class="add-favorites-btn">Add to Favorites</button>
+            </form>
+            <br>
+            <h4>Hashtable</h4>
+            <p>A hashtable is a data structure that stores data in a way that allows for fast access, insertion, and deletion. It is based on the concept of mapping keys to values.</p>
+
+            <h4>Key Concepts of Hashtables</h4>
+            <h5>Key-Value Pairing</h5>
+            <ul>
+                <li><strong>Key:</strong> A unique identifier used to access the associated value.</li>
+                <li><strong>Value:</strong> The data associated with the key. A key can map to any type of value.</li>
+            </ul>
+
+            <h5> Hash Function</h5>
+            <ul>
+                <li><strong>Purpose:</strong> A hash function converts the key into an index, determining where the value is stored in the hashtable.</li>
+                <li><strong>Efficiency:</strong> A good hash function distributes keys uniformly across the table to minimize collisions.</li>
+            </ul>
+
+            <h5>Collisions</h5>
+            <ul>
+                <li><strong>What Happens:</strong> A collision occurs when two different keys hash to the same index.</li>
+                <li><strong>Collision Resolution:</strong> Techniques like chaining (using linked lists) or open addressing (finding another slot) are used to handle collisions.</li>
+            </ul>
+
+            <h5>Efficiency</h5>
+            <ul>
+                <li><strong>Time Complexity:</strong> The average case for operations like lookup, insertion, and deletion is O(1), meaning they take constant time. However, in the worst case (e.g., many collisions), these operations could take O(n) time, where n is the number of keys.</li>
+                <li><strong>Dynamic Resizing:</strong> Hashtables often resize themselves when the load factor (ratio of items to table size) becomes too high, improving performance.</li>
+            </ul>
+
+            <h5> Real-World Analogy</h5>
+            <p><strong>Library Index:</strong> Imagine a library where books are placed in specific sections based on their ID. If you know the ID, you can quickly retrieve the book without searching through the entire library.</p>
+
+            <h5> Applications</h5>
+            <ul>
+                <li><strong>Database Indexing:</strong> Hashtables are used to quickly retrieve records based on unique keys.</li>
+                <li><strong>Caches:</strong> Frequently accessed data can be stored in a hashtable for fast retrieval.</li>
+                <li><strong>Sets and Maps:</strong> Many programming languages use hashtables to implement set and map data structures.</li>
+            </ul>
+
+            <h5>Advantages</h5>
+            <ul>
+                <li><strong>Fast Access:</strong> Hashtables allow for very fast lookup, insertion, and deletion of key-value pairs.</li>
+                <li><strong>Simple Structure:</strong> The concept of keys mapping to values is simple and flexible, making hashtables easy to implement and use.</li>
+            </ul>
+
+            <h5>Disadvantages</h5>
+            <ul>
+                <li><strong>Collisions:</strong> If not handled well, collisions can degrade performance.</li>
+                <li><strong>Fixed Size:</strong> Resizing a hashtable can be expensive and may require rehashing all keys.</li>
+                <li><strong>Hash Function Limitations:</strong> A poor hash function can lead to uneven distribution and increased collisions.</li>
+            </ul>
+            <h5 align="right"><a href="https://www.geeksforgeeks.org/hash-table-data-structure/" target="_blank">Learn more</a> about hashtables</h5>
+        </div>
+        <div class="technology-section">
+            <h2>Hashtables Tasks</h2>
+            
+            <!-- Beginner Projects -->
+            <div class="related-projects">
+                <h3>Beginner Tasks</h3>
+                <ul>
+                    <li>Basic Hashtable Implementation</li>
+                    <li>Implement HashMap</li>
+                    <li>Find Duplicate Elements Using Hashing</li>
+                </ul>
+            </div>
+        
+            <!-- Intermediate Projects -->
+            <div class="related-projects">
+                <h3>Intermediate Tasks</h3>
+                <ul>
+                    <li>Hashing for Caching</li>
+                    <li>Implement an Anagram Checker using Hashtable</li>
+                    <li>HashSet Operations</li>
+                </ul>
+            </div>
+        
+            <!-- Advanced Projects -->
+            <div class="related-projects">
+                <h3>Advanced Tasks</h3>
+                <ul>
+                    <li>Hash Collision Resolution Techniques</li>
+                    <li>Implement a Real-Time Caching System</li>
+                    <li>Distributed Hash Tables (DHTs)</li>
+                </ul>
+            </div>
+        </div>
+        
+</div>
+        <!-- Video Resources Section -->
+        <div class="video-links">
+            <button id="toggle-videos">Video Resources</button>
+            <div id="video-container" style="display: none;">
+                <a href="https://www.youtube.com/watch?v=sfWyugl4JWA" class="video-link" target="_blank">Hashtables Tutorial-1</a>
+                <a href="https://www.youtube.com/watch?v=hEPciOcibZs" class="video-link" target="_blank">Hashtables Tutorial-2</a>
+                <a href="https://www.youtube.com/watch?v=W5q0xgxmRd8&list=PLxM5rzx4f4fwOPORqEZZhaaY5OG0WMZfF" class="video-link" target="_blank">Hashtables Tutorial-3</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('toggle-videos').addEventListener('click', function () {
+            const videoContainer = document.getElementById('video-container');
+            const isHidden = videoContainer.style.display === 'none' || videoContainer.style.display === '';
+            videoContainer.style.display = isHidden ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>

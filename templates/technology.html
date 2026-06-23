@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Technologies</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/technology.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="center-links">
+                <li><a href="{{ url_for('index') }}" id="home-btn" class="{{ 'active' if request.endpoint == 'index' else '' }}">Home</a></li>
+                <li><a href="{{ url_for('technology_home') }}" id="resources-btn" class="{{ 'active' if request.endpoint == 'technology_home' else '' }}">Technology</a></li>
+                <li><a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="{{ url_for('favorites') }}" id="favorites-btn" class="{{ 'active' if request.endpoint == 'favorites' else '' }}">Favorites</a></li>
+                
+                <li class="logout"><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+    <div id="interactive-content">
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search" aria-label="Search bar for technology skills" />
+        </div>
+        <p id="no-results" style="display: none; text-align: center;">No results found.</p>
+        <div class="container">
+            <!-- Left Column: Main Categories -->
+            <div class="categories">
+
+                <div class="category" data-category="frontend">Frontend</div>
+                <div class="category" data-category="backend">Backend</div>
+                <div class="category" data-category="language">Programming languages</div>
+                <div class="category" data-category="datastructure">Data Structures and Algorithms</div>
+                
+                <div class="category" data-category="fullstack">Full Stack</div>
+                <div class="category" data-category="emerging">Emerging Technologies</div>
+                <div class="category" data-category="mobile">Mobile Development</div>
+                <div class="category" data-category="devops">DevOps</div>
+                
+                
+                
+                <div class="category" data-category="coding">Coding Platforms</div>
+                
+            </div>
+
+            <!-- Right Column: Technologies under Categories -->
+            <div class="technologies">
+                <div id="default-message" style="text-align: center; padding: 20px; font-size: 1.2rem; color: #555;">
+                    Select a category to explore the technologies!
+                </div>
+                <div class="tech-group" data-category="frontend">
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='html') }}">HTML</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='css') }}">CSS</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='javascript') }}">JavaScript</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='react js') }}">React</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='vue js') }}">Vue</a></div>
+                    
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='angular js') }}">Angular</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='UI UX') }}">UI/UX</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='api') }}">API</a></div>
+                </div>
+                <div class="tech-group" data-category="backend">
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='node js') }}">Node.js</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='springboot') }}">Spring Boot</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='sql') }}">SQL</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='postgresql') }}">PostgreSQL</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='mongodb') }}">MongoDB</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='api') }}">API</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='git github') }}">Git and GitHub</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='machine learning') }}">Machine Learning</a></div>
+                    
+                </div>
+                <div class="tech-group" data-category="language">
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='java') }}">Java</a></div>
+                    
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='python') }}">Python</a></div>
+
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='c') }}">C</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='cpp') }}">C++</a>
+                    </div>
+
+                </div>
+                <div class="tech-group" data-category="datastructure">
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='array') }}">Arrays</a></div>
+                    
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='linkedlist') }}">Linked List</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='stack') }}">Stack</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='queue') }}">Queue</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='hashtable') }}">Hashtable</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='tree') }}">Tree</a></div>
+                    
+                </div>
+                <div class="tech-group" data-category="coding">
+                    <div class="tech">
+                        <a href="{{ url_for('coding_platform_login', platform_name='leetcode') }}">LeetCode</a>
+                    </div>
+                    <div class="tech">
+                        <a href="{{ url_for('coding_platform_login', platform_name='hackerrank') }}">HackerRank</a>
+                    </div>
+                    <div class="tech">
+                        <a href="{{ url_for('coding_platform_login', platform_name='hackerearth') }}">HackerEarth</a>
+                    </div>
+                    <div class="tech">
+                        <a href="{{ url_for('coding_platform_login', platform_name='codechef') }}">CodeChef</a>
+                    </div>
+                    <!-- Add more platforms here -->
+                    <div class="tech">
+                        <a href="{{ url_for('coding_platform_login', platform_name='codeforces') }}">CodeForces</a>
+                    </div>
+                    <div class="tech">
+                        <a href="{{ url_for('coding_platform_login', platform_name='topcoder') }}">TopCoder</a>
+                    </div>
+                </div>
+                
+                <div class="tech-group" data-category="fullstack">
+                    <!-- Main Full Stack Technology -->
+                    <div class="tech">
+                        <a href="{{ url_for('technology', tech_name='fullstack') }}">Full Stack</a>
+                    </div>
+                    
+                    <!-- Subcategories under Full Stack -->
+                    <div class="tech sub-tech" data-subcategory="frontend">
+                        <a href="{{ url_for('technology', tech_name='frontend') }}">Frontend</a>
+                    </div>
+                    <div class="tech sub-tech" data-subcategory="backend">
+                        <a href="{{ url_for('technology', tech_name='backend') }}">Backend</a>
+                    </div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='git github') }}">Git and GitHub</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='datastructure') }}">Data Structures</a></div>
+                    
+                </div>
+                
+                <div class="tech-group" data-category="devops">
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='docker') }}">Docker</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='aws') }}">AWS</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='git github') }}">Git and GitHub</a></div>
+                    <div class="tech">
+                        <a href="{{ url_for('technology', tech_name='fullstack') }}">Full Stack</a>
+                    </div>
+                    
+                    <!-- Subcategories under Full Stack -->
+                    <div class="tech sub-tech" data-subcategory="frontend">
+                        <a href="{{ url_for('technology', tech_name='frontend') }}">Frontend</a>
+                    </div>
+                    <div class="tech sub-tech" data-subcategory="backend">
+                        <a href="{{ url_for('technology', tech_name='backend') }}">Backend</a>
+                    </div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='linux') }}">Linux</a></div>
+                </div>
+                <div class="tech-group" data-category="mobile">
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='reactnative') }}">React Native</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='flutter') }}">Flutter</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='api') }}">API</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='react js') }}">React</a></div>
+                    
+                </div>
+                
+                <div class="tech-group" data-category="emerging">
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='cybersecurity') }}">Cyber Security</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='ai') }}">AI</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='machine learning') }}">Machine Learning</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='cloud computing') }}">Cloud Computing</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='blockchain') }}">Blockchain</a></div>
+                    <div class="tech"><a href="{{ url_for('technology', tech_name='aws') }}">AWS</a></div>
+                    
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Redirect to home page when the home button is clicked
+        document.getElementById('home-btn').addEventListener('click', function () {
+            window.location.href = '{{ url_for("home") }}';
+        });
+    
+        // Redirect to technology home page when the resources button is clicked
+        document.getElementById('resources-btn').addEventListener('click', function () {
+            window.location.href = '{{ url_for("technology_home") }}';
+        });
+    
+        // Toggle technology visibility based on category selection
+        const categories = document.querySelectorAll('.category');
+        const defaultMessage = document.getElementById('default-message');
+        const techGroups = document.querySelectorAll('.tech-group');
+    
+        categories.forEach(category => {
+            category.addEventListener('click', function () {
+                const selectedCategory = category.getAttribute('data-category');
+    
+                // Hide the default message
+                defaultMessage.style.display = 'none';
+    
+                // Show only the relevant tech group
+                techGroups.forEach(group => {
+                    group.style.display = group.getAttribute('data-category') === selectedCategory ? 'block' : 'none';
+                });
+            });
+        });
+    
+        // Make entire technology div clickable and redirect to the technology page
+        const techItems = document.querySelectorAll('.tech');
+    
+        techItems.forEach(techItem => {
+            techItem.addEventListener('click', function () {
+                // Get the anchor inside the tech div
+                const techLink = techItem.querySelector('a');
+                
+                // Get the href (URL) from the anchor tag
+                const techUrl = techLink.getAttribute('href');
+                
+                // Redirect to the corresponding technology page
+                window.location.href = techUrl;
+            });
+        });
+    
+        // Search functionality for technologies
+        document.getElementById('search-bar').addEventListener('input', function () {
+            const query = this.value.toLowerCase();
+            const blocks = document.querySelectorAll('.tech');
+            let hasResults = false;
+    
+            blocks.forEach(block => {
+                if (block.textContent.toLowerCase().includes(query)) {
+                    block.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    block.style.display = 'none';
+                }
+            });
+    
+            document.getElementById('no-results').style.display = hasResults ? 'none' : 'block';
+        });
+    </script>
+    
+    
+    
+    
+</body>
+</html>
